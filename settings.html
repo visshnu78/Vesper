@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vesper: Settings & Preferences</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="canonical" href="https://vespersocial.org/settings.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/app-pages.css">
+</head>
+<body class="app-shell">
+
+  <!-- Top Glass Navigation Bar -->
+  <header class="app-nav-bar">
+    <div class="app-nav-inner">
+      <a href="feed.html" class="app-brand" aria-label="Back to Feed">
+        <svg class="brand-icon" viewBox="0 0 32 32" fill="none" style="width:26px; height:26px;" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M10 21L16 9L22 21" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="16" cy="17" r="2.5" fill="var(--accent-primary)"/>
+        </svg>
+        <span>Vesper</span>
+        <span class="app-brand-badge">Settings</span>
+      </a>
+
+      <div class="app-nav-actions">
+        <a href="feed.html" class="nav-icon-btn" title="Feed"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></a>
+        <a href="profile.html" class="nav-icon-btn" title="Profile"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+        <button id="themeToggleBtn" class="nav-icon-btn" title="Toggle Theme" type="button"><svg id="themeMoonIcon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Settings Content -->
+  <main class="settings-container">
+    <!-- Feedback Alert -->
+    <div id="settingsAlert" style="display:none; padding:10px 14px; border-radius:var(--radius-md); font-size:0.85rem; margin-bottom:var(--space-4);"></div>
+
+    <!-- Section 1: Profile Settings -->
+    <div class="settings-card">
+      <h2 class="settings-section-title">Profile Identity</h2>
+
+      <form id="profileSettingsForm">
+        <div class="auth-form-group">
+          <label class="auth-label" for="settName">Full Display Name</label>
+          <input type="text" id="settName" class="form-input" required>
+        </div>
+
+        <div class="auth-form-group">
+          <label class="auth-label" for="settHandle">Username Handle</label>
+          <div class="input-group">
+            <span class="input-prefix">@</span>
+            <input type="text" id="settHandle" class="form-input has-prefix" disabled style="opacity:0.7;">
+          </div>
+          <span style="font-size:0.75rem; color:var(--text-muted);">Cryptographically signed handles are permanent across the protocol.</span>
+        </div>
+
+        <div class="auth-form-group">
+          <label class="auth-label" for="settEmail">Email Address</label>
+          <input type="email" id="settEmail" class="form-input" required>
+        </div>
+
+        <div class="auth-form-group">
+          <label class="auth-label" for="settBio">Bio</label>
+          <textarea id="settBio" class="form-input" style="height:80px; resize:vertical;"></textarea>
+        </div>
+
+        <div class="auth-form-group">
+          <label class="auth-label" for="settWebsite">Website or Portfolio</label>
+          <input type="url" id="settWebsite" class="form-input" placeholder="https://yourdomain.com">
+        </div>
+
+        <div class="auth-form-group">
+          <label class="auth-label" for="settAvatar">Avatar Image URL</label>
+          <input type="url" id="settAvatar" class="form-input">
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="margin-top:var(--space-2);">Save Profile Changes</button>
+      </form>
+    </div>
+
+    <!-- Section 2: Preferences -->
+    <div class="settings-card">
+      <h2 class="settings-section-title">Feed & Resonance Preferences</h2>
+
+      <div class="toggle-switch-row">
+        <div class="toggle-switch-info">
+          <h4>Strict Chronological Order</h4>
+          <p>Always show posts in raw real-time order with zero algorithmic reranking.</p>
+        </div>
+        <span style="font-size:0.8rem; font-weight:700; color:var(--accent-primary);">ALWAYS ON</span>
+      </div>
+
+      <div class="toggle-switch-row">
+        <div class="toggle-switch-info">
+          <h4>Lossless Media Rendering</h4>
+          <p>Download original full-resolution media without platform compression.</p>
+        </div>
+        <span style="font-size:0.8rem; font-weight:700; color:#2ECC71;">ENABLED</span>
+      </div>
+
+      <div class="toggle-switch-row">
+        <div class="toggle-switch-info">
+          <h4>Ad & Tracker Blocking</h4>
+          <p>Zero tracking pixels, zero biometric telemetry, zero surveillance ads.</p>
+        </div>
+        <span style="font-size:0.8rem; font-weight:700; color:#2ECC71;">ACTIVE</span>
+      </div>
+    </div>
+
+    <!-- Section 3: Data Sovereignty & Danger Zone -->
+    <div class="settings-card">
+      <h2 class="settings-section-title" style="color:#EB4B26;">Data Sovereignty & Backup</h2>
+
+      <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:var(--space-4);">
+        You own your data completely. You can export your full social graph, posts, and credentials, or reset your local store.
+      </p>
+
+      <div style="display:flex; flex-direction:column; gap:var(--space-3);">
+        <button type="button" class="btn btn-outline" id="exportDataBtn" style="width:100%; justify-content:center;">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:text-bottom; margin-right:6px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download Data (JSON Export)
+        </button>
+
+        <button type="button" class="btn btn-outline" id="resetDbBtn" style="width:100%; justify-content:center; color:#EB4B26; border-color:rgba(235,75,38,0.4);">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:text-bottom; margin-right:6px;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Reset Database to Initial Factory Seed
+        </button>
+
+        <button type="button" class="btn btn-outline" id="logoutAllBtn" style="width:100%; justify-content:center;">
+          Sign Out of Active Session
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Mobile Bottom Dock -->
+  <nav class="mobile-bottom-dock" aria-label="Mobile Navigation">
+    <a href="feed.html" class="dock-item" aria-label="Feed"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></a>
+    <a href="explore.html" class="dock-item" aria-label="Explore"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></a>
+    <a href="create.html" class="dock-create-btn" aria-label="Create Post"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></a>
+    <a href="settings.html" class="dock-item active" aria-label="Settings"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></a>
+    <a href="profile.html" class="dock-item" aria-label="Profile"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+  </nav>
+
+  <script src="js/db.js"></script>
+  <script src="js/settings.js"></script>
+</body>
+</html>

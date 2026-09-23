@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vesper: Chronological Photo Platform for Independent Creators</title>
+  <meta name="description" content="An independent chronological photography platform with lossless media preservation, customizable discovery, and community governance.">
+  <link rel="canonical" href="https://vespersocial.org/">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  
+  <!-- Preconnect Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Skip to Main Accessibility Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ========================================================================
+       1. STICKY SITE HEADER
+       ======================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <!-- Brand Logo -->
+      <a href="feed.html" class="brand-logo" aria-label="Vesper Home">
+        <svg class="brand-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M10 21L16 9L22 21" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="16" cy="17" r="2.5" fill="var(--accent-primary)"/>
+        </svg>
+        <span>Vesper</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="feed.html" class="nav-link">Live Feed</a>
+        <a href="explore.html" class="nav-link">Explore</a>
+        <a href="circles.html" class="nav-link">Circles</a>
+        <a href="about.html" class="nav-link">Manifesto</a>
+        <a href="#features" class="nav-link">Architecture</a>
+        <a href="#walkthrough" class="nav-link">Walkthrough</a>
+      </nav>
+
+      <!-- Nav Actions (Theme Toggle + CTA) -->
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle dark/light theme" type="button">
+          <!-- Sun Icon (shown in dark mode) -->
+          <svg id="themeSunIcon" style="display:none;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <!-- Moon Icon (shown in light mode) -->
+          <svg id="themeMoonIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <a href="auth.html?mode=login" class="btn btn-outline btn-sm">Sign In</a>
+        <a href="auth.html?mode=register" class="btn btn-primary btn-sm">
+          <span>Join Free</span>
+          <svg class="arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+
+        <!-- Mobile Menu Hamburger -->
+        <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Open mobile menu" aria-expanded="false" type="button">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobileDrawer" class="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <nav class="mobile-nav-links">
+      <a href="feed.html" class="mobile-nav-link">Live Feed</a>
+      <a href="explore.html" class="mobile-nav-link">Explore</a>
+      <a href="circles.html" class="mobile-nav-link">Circles</a>
+      <a href="create.html" class="mobile-nav-link">Create Post</a>
+      <a href="about.html" class="mobile-nav-link">About Manifesto</a>
+      <a href="#features" class="mobile-nav-link">Architecture</a>
+      <a href="#walkthrough" class="mobile-nav-link">Walkthrough</a>
+    </nav>
+    <div style="display:flex; flex-direction:column; gap: var(--space-3); margin-top: var(--space-4);">
+      <a href="auth.html?mode=login" class="btn btn-outline btn-lg" style="width:100%;">Sign In</a>
+      <a href="auth.html?mode=register" class="btn btn-primary btn-lg" style="width:100%;">Create Free Account</a>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <!-- ========================================================================
+         2. HERO SECTION (Left Content, Right Visual Mockup)
+         ======================================================================== -->
+    <section class="hero-section" aria-label="Introduction">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Left Column: Content & Conversion Form -->
+          <div class="hero-content reveal-fade-up">
+            <div class="hero-badge">
+              <span class="hero-badge-pulse" aria-hidden="true"></span>
+              <span>Open Federated Architecture</span>
+            </div>
+
+            <h1 class="hero-title">A Chronological Photo Platform for Independent Creators.</h1>
+
+            <p class="hero-desc">
+              Publish high-resolution photography without algorithmic feed manipulation, advertising trackers, or lossy image compression. Organize focused circles, retain 100% rights to your work, and connect directly with other photographers.
+            </p>
+
+            <!-- Inline Hero Signup Intake -->
+            <div class="hero-signup-box" id="hero-signup">
+              <form id="heroSignupForm" class="signup-form" novalidate>
+                <div class="form-row">
+                  <!-- Handle reservation -->
+                  <div class="input-group">
+                    <span class="input-prefix" aria-hidden="true">@</span>
+                    <input type="text" id="heroHandleInput" class="form-input has-prefix" placeholder="handle" aria-label="Desired username handle" required autocomplete="off">
+                  </div>
+                  <!-- Email input -->
+                  <div class="input-group">
+                    <input type="email" id="heroEmailInput" class="form-input" placeholder="name@domain.com" aria-label="Email address" required autocomplete="email">
+                  </div>
+                </div>
+
+                <!-- Instant Handle Feedback -->
+                <div id="handleFeedback" class="form-feedback" role="alert" aria-live="polite"></div>
+
+                <!-- Progressive Disclosure: Password field on focus -->
+                <div id="progressiveFields" class="progressive-field">
+                  <div class="input-group" style="margin-top: var(--space-2);">
+                    <input type="password" id="heroPasswordInput" class="form-input" placeholder="Create a secure passphrase" aria-label="Create a secure passphrase" autocomplete="new-password">
+                  </div>
+                </div>
+
+                <!-- CTA Actions -->
+                <div class="signup-actions">
+                  <button type="submit" class="btn btn-accent">
+                    <span>Create Free Account</span>
+                    <svg class="arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </button>
+                  <a href="feed.html" class="btn btn-outline">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    <span>Browse Live Feed</span>
+                  </a>
+                </div>
+              </form>
+            </div>
+
+            <!-- Trust micro-badges -->
+            <div class="hero-trust-bar">
+              <span class="trust-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Zero surveillance ads
+              </span>
+              <span class="trust-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Pure chronological feed
+              </span>
+              <span class="trust-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Lossless photo preservation
+              </span>
+            </div>
+          </div>
+
+          <!-- Right Column: Instagram-Inspired Interactive Feed Mockup with Enhanced Glassmorphism -->
+          <div class="hero-visual reveal-fade-up">
+            <div class="platform-mockup" role="region" aria-label="Interactive feed preview">
+              <!-- Mockup Browser Bar -->
+              <div class="mockup-header">
+                <div class="window-dots" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </div>
+                <a href="feed.html" class="mockup-address" style="text-decoration:none; color:inherit; display:flex; align-items:center; gap:6px;">vespersocial.org/@elena_arch <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                <a href="feed.html" style="font-size:0.75rem; color:var(--accent-primary); font-family:var(--font-mono); font-weight:700; text-decoration:none;">OPEN APP →</a>
+              </div>
+
+              <!-- Mockup Body Content -->
+              <div class="mockup-body">
+                <!-- Instagram-Inspired Stories / Sovereign Circles Tray -->
+                <div class="stories-tray" role="region" aria-label="Sovereign Circles Stories">
+                  <a href="create.html" class="story-item" data-story="your-story" title="Post new photo to circle" style="text-decoration:none; color:inherit;">
+                    <div class="story-ring your-story">
+                      <div class="story-avatar-inner" style="background:#26282E; font-size:1.1rem;">+</div>
+                      <span class="story-add-badge">+</span>
+                    </div>
+                    <span class="story-label">Your Circle</span>
+                  </a>
+
+                  <div class="story-item" data-story="elena" title="View @elena_arch story">
+                    <div class="story-ring">
+                      <div class="story-avatar-inner" style="background: linear-gradient(135deg, #D95328, #B83B1A);">ER</div>
+                    </div>
+                    <span class="story-label">elena_arch</span>
+                  </div>
+
+                  <div class="story-item" data-story="marcus" title="View @marcus_dev story">
+                    <div class="story-ring">
+                      <div class="story-avatar-inner" style="background: linear-gradient(135deg, #121316, #4A5568);">MD</div>
+                    </div>
+                    <span class="story-label">marcus_dev</span>
+                  </div>
+
+                  <div class="story-item" data-story="press" title="View @press_node story">
+                    <div class="story-ring">
+                      <div class="story-avatar-inner" style="background: linear-gradient(135deg, #EB4B26, #FF9900);">PN</div>
+                    </div>
+                    <span class="story-label">press_node</span>
+                  </div>
+
+                  <div class="story-item" data-story="julian" title="View @dr_julian story">
+                    <div class="story-ring seen">
+                      <div class="story-avatar-inner" style="background: linear-gradient(135deg, #2D3748, #1A202C);">DJ</div>
+                    </div>
+                    <span class="story-label">dr_julian</span>
+                  </div>
+                </div>
+
+                <!-- Instagram-Inspired Feed Post Card -->
+                <article class="insta-post-card">
+                  <!-- Header -->
+                  <header class="post-header">
+                    <a href="profile.html?user=elena_arch" class="post-creator" style="text-decoration:none; color:inherit;">
+                      <div class="post-avatar-mini">
+                        <div class="post-avatar-mini-inner">ER</div>
+                      </div>
+                      <div class="post-creator-meta">
+                        <span class="post-creator-name">
+                          elena_arch
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2.5" aria-label="Verified Creator"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </span>
+                        <span class="post-subtext"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:text-bottom; margin-right:4px;"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>Kyoto Ambient Studio · Lossless Audio</span>
+                      </div>
+                    </a>
+                    <button class="post-options-btn" aria-label="Post options" type="button">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><circle cx="5" cy="12" r="2"/></svg>
+                    </button>
+                  </header>
+
+                  <!-- Media Canvas Frame with Double-Tap Heart Pop -->
+                  <div class="post-media-frame" id="postMediaFrame" title="Double click or tap to resonate!">
+                    <div class="media-artwork">
+                      <div class="media-top-tags">
+                        <span class="media-glass-pill">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                          4K LOSSLESS RAW
+                        </span>
+                        <span class="media-glass-pill">1 / 4</span>
+                      </div>
+                      <div class="media-content-preview">
+                        <div class="media-caption-headline">Spatial Acoustic Pavilion</div>
+                        <div class="media-badge-bottom">
+                          <span>Kith Collective #401</span>
+                          <span>Chrono-Strict • 0 Ads</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Heart Pop Animated Element -->
+                    <div class="heart-pop-center" id="heartPopAnim">
+                      <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                    </div>
+                  </div>
+
+                  <!-- Instagram Action Bar -->
+                  <div class="post-action-bar">
+                    <div class="post-action-group-left">
+                      <!-- Heart / Like -->
+                      <button class="insta-action-btn" id="postLikeBtn" aria-label="Resonate post" type="button">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                      </button>
+                      <!-- Comment -->
+                      <button class="insta-action-btn" id="postCommentBtn" aria-label="Reply to post" type="button">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                      </button>
+                      <!-- Share (Paper Plane) -->
+                      <button class="insta-action-btn" id="postShareBtn" aria-label="Share post via direct relay" type="button">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                      </button>
+                    </div>
+                    <!-- Bookmark / Save -->
+                    <button class="insta-action-btn" id="postBookmarkBtn" aria-label="Save to collection" type="button">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                  </div>
+
+                  <!-- Post Details -->
+                  <div class="post-details">
+                    <div class="likes-count">
+                      <div class="likes-avatars-stack">
+                        <div class="likes-avatar-dot" style="background:#EB4B26;"></div>
+                        <div class="likes-avatar-dot" style="background:#121316;"></div>
+                        <div class="likes-avatar-dot" style="background:#2ECC71;"></div>
+                      </div>
+                      <span>Liked by <strong>marcus_lens</strong> and <strong id="likesCountText">3 others</strong></span>
+                    </div>
+                    <div class="post-caption">
+                      <strong>elena_arch</strong> Architectural study: daylight vectors casting dynamic shadows across cast concrete.
+                    </div>
+                    <div class="comments-link" id="commentsTrigger">View all 2 comments</div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         3. TRUST & ARCHITECTURE PILLARS
+         ======================================================================== -->
+    <section class="trust-section" id="trust" aria-label="Ecosystem and Trust">
+      <div class="container">
+        <div class="trust-header">
+          <p class="trust-title">Engineered around open-source standards and creator media sovereignty</p>
+        </div>
+
+        <div class="trust-grid">
+          <!-- Trust Badge 1 -->
+          <div class="trust-badge-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            <span>Open Web Guild</span>
+          </div>
+
+          <!-- Trust Badge 2 -->
+          <div class="trust-badge-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            <span>Independent Press Circle</span>
+          </div>
+
+          <!-- Trust Badge 3 -->
+          <div class="trust-badge-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>Civic Privacy Network</span>
+          </div>
+
+          <!-- Trust Badge 4 -->
+          <div class="trust-badge-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            <span>Decentralized Protocols Lab</span>
+          </div>
+        </div>
+
+        <!-- Architecture Pillars Strip -->
+        <div class="stats-strip">
+          <div class="stat-item">
+            <span class="stat-number">Chronological</span>
+            <span class="stat-label">Feed Ordered Purely by Time</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">Lossless</span>
+            <span class="stat-label">Full Resolution Photo Storage</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">Zero Tracking</span>
+            <span class="stat-label">No Third-Party Ad Networks</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         4. FEATURE SECTIONS (Asymmetric Blocks: Discover, Create, Connect)
+         ======================================================================== -->
+    <section class="features-section" id="features" aria-label="Core Capabilities">
+      <div class="container">
+        <!-- BLOCK 1: DISCOVER (Algorithmic Sovereignty) -->
+        <div class="feature-block">
+          <div class="feature-text reveal-fade-up">
+            <span class="section-eyebrow">Discovery Architecture</span>
+            <h2 class="feature-title">You hold the tuning dial. Not an advertising formula.</h2>
+            <p class="feature-desc">
+              Commercial platforms optimize your feed to induce emotional spikes and maximize screen time. On Vesper, you control the underlying recommendation weights with transparent, client-side dials.
+            </p>
+
+            <div class="feature-bullets">
+              <div class="bullet-item">
+                <div class="bullet-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="bullet-content">
+                  <h4>Transparent Dial Weights</h4>
+                  <p>Slide seamlessly between pure real-time chronological order, high-affinity topics, and deep peer-reviewed research.</p>
+                </div>
+              </div>
+
+              <div class="bullet-item">
+                <div class="bullet-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="bullet-content">
+                  <h4>Zero Outrage Multiplication</h4>
+                  <p>Content is never artificially promoted for sensationalism, aggressive polemics, or passive watch time.</p>
+                </div>
+              </div>
+
+              <div class="bullet-item">
+                <div class="bullet-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="bullet-content">
+                  <h4>Portable Social Graph</h4>
+                  <p>Your follower network is signed cryptographically with open public keys. Export your graph anytime with zero platform lock-in.</p>
+                </div>
+              </div>
+            </div>
+
+            <a href="explore.html" class="btn btn-outline">Explore Discovery Grid</a>
+          </div>
+
+          <!-- Feature 1 Interactive Visual -->
+          <div class="feature-interactive-card reveal-fade-up" style="transition-delay: 150ms;">
+            <div class="algo-controls">
+              <div class="slider-group">
+                <div class="slider-labels">
+                  <span>Feed Discovery Mode</span>
+                  <span class="slider-value" id="algoSliderVal">Topic Affinity & Longform (Balanced)</span>
+                </div>
+                <label for="algoSlider" class="sr-only">Adjust algorithm weight slider</label>
+                <input type="range" min="0" max="2" value="1" step="1" id="algoSlider" class="algo-slider">
+              </div>
+
+              <!-- Live Simulator Preview -->
+              <div class="algo-feed-preview">
+                <div class="algo-feed-header">
+                  <span id="algoFeedHeaderVal">BALANCED HEURISTIC • CITATIONS PRIORITIZED</span>
+                  <span>HEURISTIC ACTIVE</span>
+                </div>
+                <p id="algoFeedSnippet" style="line-height:1.5;">
+                  Post #4120 from @research_guild: "Comprehensive review: Why peer-reviewed decentralization withstands censorship..." (14m ago)
+                </p>
+              </div>
+
+              <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--text-muted); font-family:var(--font-mono); margin-top:var(--space-2);">
+                <span>← 0% Algorithm</span>
+                <span>Balanced</span>
+                <span>Deep Synthesis →</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOCK 2: CREATE (Studio-Grade Storytelling) -->
+        <div class="feature-block reverse">
+          <div class="feature-text reveal-fade-up">
+            <span class="section-eyebrow">Studio Publishing</span>
+            <h2 class="feature-title">Publish without compromise. Keep 100% of reader support.</h2>
+            <p class="feature-desc">
+              Whether you compose concise real-time observations or deep investigative treatises, Vesper provides an uncompressed media environment with built-in patron subscriptions and zero platform revenue cuts.
+            </p>
+
+            <div class="feature-bullets">
+              <div class="bullet-item">
+                <div class="bullet-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="bullet-content">
+                  <h4>Lossless Media Fidelity</h4>
+                  <p>Full 4K uncompressed photography, lossless audio dispatches, and syntax-highlighted code blocks with zero degradation.</p>
+                </div>
+              </div>
+
+              <div class="bullet-item">
+                <div class="bullet-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="bullet-content">
+                  <h4>Zero-Fee Reader Patronage</h4>
+                  <p>Connect your Stripe or crypto relay directly. Readers support your craft with 0% platform intermediary commission.</p>
+                </div>
+              </div>
+
+              <div class="bullet-item">
+                <div class="bullet-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="bullet-content">
+                  <h4>Markdown & Custom Typography</h4>
+                  <p>Flexible canvas supporting footnotes, interactive charts, mathematical expressions, and custom publication domains.</p>
+                </div>
+              </div>
+            </div>
+
+            <a href="create.html" class="btn btn-primary">Start Publishing Photos</a>
+          </div>
+
+          <!-- Feature 2 Interactive Visual: Instagram-Inspired 3-Column Creator Grid -->
+          <div class="feature-interactive-card reveal-fade-up" style="transition-delay: 150ms;">
+            <div class="creator-preview-box">
+              <div class="creator-profile-header">
+                <div class="creator-profile-info">
+                  <div class="creator-avatar-lg">
+                    <div class="creator-avatar-lg-inner">ER</div>
+                  </div>
+                  <div>
+                    <div style="font-weight:700; font-size:0.95rem; display:flex; align-items:center; gap:4px;">
+                      elena_arch
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <div style="font-size:0.75rem; color:var(--text-muted);">Spatial Architect & Sound Designer</div>
+                  </div>
+                </div>
+                <div class="creator-meta-stats">
+                  <div class="creator-meta-stat">
+                    <strong>6</strong>
+                    <span>Posts</span>
+                  </div>
+                  <div class="creator-meta-stat">
+                    <strong>312</strong>
+                    <span>Followers</span>
+                  </div>
+                  <div class="creator-meta-stat">
+                    <strong>4</strong>
+                    <span>Circles</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Instagram 3-Column Grid -->
+              <div class="insta-profile-grid">
+                <div class="grid-thumbnail">
+                  <div class="grid-thumb-bg" style="background: linear-gradient(135deg, #2D313D, #171920);"></div>
+                  <span style="position:absolute; top:6px; right:6px; color:#FFF; font-size:10px; background:rgba(0,0,0,0.5); padding:2px 4px; border-radius:4px;">RAW</span>
+                  <div class="grid-hover-overlay">
+                    <span class="grid-stat-chip">
+                      <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                      24
+                    </span>
+                    <span class="grid-stat-chip">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                      2
+                    </span>
+                  </div>
+                </div>
+
+                <div class="grid-thumbnail">
+                  <div class="grid-thumb-bg" style="background: linear-gradient(135deg, #D95328, #B83B1A);"></div>
+                  <span style="position:absolute; top:6px; right:6px; color:#FFF; font-size:10px; background:rgba(0,0,0,0.5); padding:2px 4px; border-radius:4px;">FILM</span>
+                  <div class="grid-hover-overlay">
+                    <span class="grid-stat-chip">
+                      <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                      38
+                    </span>
+                    <span class="grid-stat-chip">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                      4
+                    </span>
+                  </div>
+                </div>
+
+                <div class="grid-thumbnail">
+                  <div class="grid-thumb-bg" style="background: linear-gradient(135deg, #1C1E26, #B83B1A);"></div>
+                  <span style="position:absolute; top:6px; right:6px; color:#FFF; font-size:10px; background:rgba(0,0,0,0.5); padding:2px 4px; border-radius:4px;">STUDY</span>
+                  <div class="grid-hover-overlay">
+                    <span class="grid-stat-chip">
+                      <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                      19
+                    </span>
+                    <span class="grid-stat-chip">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                      1
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="patronage-pill">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                <span>Direct Reader Support: 100% direct with 0% platform intermediary commission</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOCK 3: CONNECT (Democratic Community Councils) -->
+        <div class="feature-block">
+          <div class="feature-text reveal-fade-up">
+            <span class="section-eyebrow">Trust & Moderation</span>
+            <h2 class="feature-title">Elected peer juries, not arbitrary black-box bans.</h2>
+            <p class="feature-desc">
+              Toxic spaces fail because moderation is either non-existent or dictated by opaque corporate trust-and-safety committees. Vesper pioneers transparent community jury councils with cryptographically signed appeal logs.
+            </p>
+
+            <div class="feature-bullets">
+              <div class="bullet-item">
+                <div class="bullet-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="bullet-content">
+                  <h4>Rotating Community Juries</h4>
+                  <p>Disputes in public circles are reviewed by randomized, trusted community jurors selected through consensus stake.</p>
+                </div>
+              </div>
+
+              <div class="bullet-item">
+                <div class="bullet-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="bullet-content">
+                  <h4>Public Immutable Appeal Ledger</h4>
+                  <p>Every moderation enforcement action is logged with detailed rationale and jury ballot counts for total transparency.</p>
+                </div>
+              </div>
+
+              <div class="bullet-item">
+                <div class="bullet-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="bullet-content">
+                  <h4>Granular Circle Boundaries</h4>
+                  <p>Enforce room-level entry rules, minimum peer endorsements, and friction against automated spam brigades.</p>
+                </div>
+              </div>
+            </div>
+
+            <a href="#walkthrough" class="btn btn-outline">See Moderation System</a>
+          </div>
+
+          <!-- Feature 3 Interactive Visual -->
+          <div class="feature-interactive-card reveal-fade-up">
+            <div class="jury-card">
+              <div class="jury-badge-row">
+                <div class="jury-status">
+                  <span class="jury-status-dot"></span>
+                  <span>JURY CASE #812 • RESOLVED</span>
+                </div>
+                <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted);">Community Review Council</span>
+              </div>
+
+              <div class="case-summary">
+                <strong>Complaint:</strong> Coordinated spam brigade detected targeting research discussion #104.
+              </div>
+
+              <div class="vote-bars">
+                <div class="vote-item">
+                  <div class="vote-label-row">
+                    <span>Uphold Circle Norms (Sanction)</span>
+                    <span style="color:var(--color-success);">92%</span>
+                  </div>
+                  <div class="vote-track">
+                    <div class="vote-fill green" style="width: 92%;"></div>
+                  </div>
+                </div>
+
+                <div class="vote-item">
+                  <div class="vote-label-row">
+                    <span>Dismiss Complaint</span>
+                    <span style="color:var(--accent-primary);">8%</span>
+                  </div>
+                  <div class="vote-track">
+                    <div class="vote-fill red" style="width: 8%;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="font-family:var(--font-mono); font-size:0.725rem; color:var(--text-muted); border-top:1px solid var(--color-border-subtle); padding-top:var(--space-2);">
+                PGP Signature: <span style="color:var(--text-secondary);">4a7f..9b01 • Verifiable On-Chain</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         5. PRODUCT WALKTHROUGH (Interactive 3-Step Demo Carousel)
+         ======================================================================== -->
+    <section class="walkthrough-section" id="walkthrough" aria-label="Interactive Product Walkthrough">
+      <div class="container">
+        <div class="walkthrough-header reveal-fade-up">
+          <span class="section-eyebrow">Product Walkthrough</span>
+          <h2 class="section-title">How Vesper works in practice</h2>
+          <p class="section-subtitle">
+            Explore the three foundational workflows designed to return dignity, clarity, and sovereignty to your digital daily routine.
+          </p>
+        </div>
+
+        <!-- Step Tab Buttons -->
+        <div class="walkthrough-tabs reveal-fade-up" role="tablist" aria-label="Walkthrough Steps">
+          <button class="step-tab-btn active" role="tab" aria-selected="true" data-step="0">
+            <span class="step-number">01</span>
+            <span>Curate Your Spectrum</span>
+          </button>
+          <button class="step-tab-btn" role="tab" aria-selected="false" data-step="1">
+            <span class="step-number">02</span>
+            <span>Host Sovereign Circles</span>
+          </button>
+          <button class="step-tab-btn" role="tab" aria-selected="false" data-step="2">
+            <span class="step-number">03</span>
+            <span>Democratic Moderation</span>
+          </button>
+        </div>
+
+        <!-- Carousel Viewport with Swipe & Keyboard Support -->
+        <div class="carousel-container reveal-fade-up">
+          <div class="carousel-viewport">
+            <div class="carousel-slides-track" id="carouselTrack">
+              <!-- Slide 1 -->
+              <div class="carousel-slide" role="tabpanel" aria-label="Step 1: Curate Your Spectrum">
+                <div class="slide-content">
+                  <span class="section-eyebrow">Step 01 / 03</span>
+                  <h3>Tailor your timeline with mathematical precision</h3>
+                  <p>
+                    Unlike legacy feeds where your attention is sold to the highest bidder, your Vesper spectrum lets you toggle between pure chronology and custom semantic filters. Zero hidden biases, zero secret shadowbans.
+                  </p>
+                  <div class="slide-meta-list">
+                    <div class="slide-meta-item">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Custom chronological filters with zero algorithmic decay</span>
+                    </div>
+                    <div class="slide-meta-item">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Filter out engagement bait keywords with client-side NLP</span>
+                    </div>
+                  </div>
+                  <button class="btn btn-outline" data-open-modal="demo">Test Filter Live</button>
+                </div>
+
+                <div class="slide-mockup">
+                  <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--accent-primary); margin-bottom:var(--space-3);">[SPECTRUM CONFIGURATOR]</div>
+                  <div style="background:var(--surface-card); padding:var(--space-4); border-radius:var(--radius-md); border:1px solid var(--color-border); display:flex; flex-direction:column; gap:var(--space-3);">
+                    <div style="display:flex; justify-content:space-between; font-size:0.85rem; font-weight:600;">
+                      <span>Chronological Feed</span>
+                      <span style="color:var(--color-success);">ACTIVE</span>
+                    </div>
+                    <div style="font-size:0.825rem; color:var(--text-secondary);">
+                      Showing 100% chronological posts from 84 trusted nodes.
+                    </div>
+                    <div style="height:4px; width:100%; background:var(--accent-light); border-radius:2px; overflow:hidden;">
+                      <div style="width:100%; height:100%; background:var(--accent-primary);"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="carousel-slide" role="tabpanel" aria-label="Step 2: Host Sovereign Circles">
+                <div class="slide-content">
+                  <span class="section-eyebrow">Step 02 / 03</span>
+                  <h3>Create invite-only quiet spaces with bespoke norms</h3>
+                  <p>
+                    Form Sovereign Circles for specialized research, private guilds, or close-knit friends. Set custom entry prerequisites, membership stakes, and dedicated discussion channels.
+                  </p>
+                  <div class="slide-meta-list">
+                    <div class="slide-meta-item">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>End-to-end encrypted rooms for sensitive conversations</span>
+                    </div>
+                    <div class="slide-meta-item">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Custom roles and guild-level member governance</span>
+                    </div>
+                  </div>
+                  <button class="btn btn-outline" data-open-modal="demo">Preview Circle Tools</button>
+                </div>
+
+                <div class="slide-mockup">
+                  <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--accent-primary); margin-bottom:var(--space-3);">[CIRCLE PERMISSION MATRIX]</div>
+                  <div style="background:var(--surface-card); padding:var(--space-4); border-radius:var(--radius-md); border:1px solid var(--color-border); display:flex; flex-direction:column; gap:var(--space-2);">
+                    <div style="display:flex; justify-content:space-between; font-size:0.85rem;">
+                      <span>Circle #24: Applied Systems Design</span>
+                      <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted);">642 Members</span>
+                    </div>
+                    <div style="font-size:0.8rem; color:var(--color-success); font-weight:600; display:flex; align-items:center; gap:4px;">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                      Verified Peer Key Required
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="carousel-slide" role="tabpanel" aria-label="Step 3: Democratic Moderation">
+                <div class="slide-content">
+                  <span class="section-eyebrow">Step 03 / 03</span>
+                  <h3>Transparent peer jury ballots and open logs</h3>
+                  <p>
+                    Never worry about unexpected account suspensions. All reported infractions are arbitrated by independent community juries with transparent voting and verifiable cryptographic audit trails.
+                  </p>
+                  <div class="slide-meta-list">
+                    <div class="slide-meta-item">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Anonymous, randomized jury selection for zero retaliation</span>
+                    </div>
+                    <div class="slide-meta-item">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>72-hour appeal period with public defense briefs</span>
+                    </div>
+                  </div>
+                  <button class="btn btn-outline" data-open-modal="demo">View Public Ledger</button>
+                </div>
+
+                <div class="slide-mockup">
+                  <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--accent-primary); margin-bottom:var(--space-3);">[PEER JURY BALLOT]</div>
+                  <div style="background:var(--surface-card); padding:var(--space-4); border-radius:var(--radius-md); border:1px solid var(--color-border); display:flex; flex-direction:column; gap:var(--space-3);">
+                    <div style="font-size:0.85rem; font-weight:700;">Case: Harassment Claim #410</div>
+                    <div style="font-size:0.8rem; color:var(--text-secondary);">Jury Consensus reached: 88/100 votes to issue 7-day cooldown.</div>
+                    <div style="font-family:var(--font-mono); font-size:0.72rem; color:var(--color-success);">AUDIT STATUS: RECORDED</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls Bar (Arrows + Indicators) -->
+          <div class="carousel-controls-bar">
+            <div class="carousel-nav-btns">
+              <button id="carouselPrev" class="carousel-arrow-btn" aria-label="Previous step" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <button id="carouselNext" class="carousel-arrow-btn" aria-label="Next step" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+            </div>
+
+            <div class="carousel-indicators" role="tablist" aria-label="Carousel pagination dots">
+              <button class="indicator-dot active" aria-label="Go to slide 1" type="button"></button>
+              <button class="indicator-dot" aria-label="Go to slide 2" type="button"></button>
+              <button class="indicator-dot" aria-label="Go to slide 3" type="button"></button>
+            </div>
+
+            <div class="carousel-hint">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8L22 12L18 16"/><path d="M6 8L2 12L6 16"/></svg>
+              <span>Use Left/Right keyboard arrows or swipe</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ========================================================================
+         7. MID-PAGE & BOTTOM CONVERSION BANNER
+         ======================================================================== -->
+    <section class="cta-banner-section" aria-label="Call to Action">
+      <div class="container">
+        <div class="cta-banner-card reveal-fade-up">
+          <h2>A calm digital space for authentic photography.</h2>
+          <p>
+            Join independent creators who have chosen chronological feeds, transparent community governance, and uncompressed media sovereignty.
+          </p>
+
+          <form class="cta-form-row" novalidate>
+            <label for="bottomEmailInput" class="sr-only">Enter your email address</label>
+            <input type="email" id="bottomEmailInput" class="form-input" placeholder="Enter your email address" required autocomplete="email">
+            <button type="submit" class="btn btn-accent">
+              <span>Join Vesper</span>
+              <svg class="arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </form>
+
+          <div style="display:flex; justify-content:center; gap:var(--space-4); margin-top:var(--space-6); flex-wrap:wrap;">
+            <a href="feed.html" class="btn btn-primary">
+              <span>Launch Live Feed</span>
+              <svg class="arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="auth.html?mode=register" class="btn btn-outline">Create Free Account</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       8. COMPREHENSIVE SITE FOOTER
+       ======================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <!-- Brand Column -->
+        <div class="footer-brand-col">
+          <a href="feed.html" class="brand-logo" aria-label="Vesper Home">
+            <svg class="brand-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2.5"/>
+              <path d="M10 21L16 9L22 21" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="16" cy="17" r="2.5" fill="var(--accent-primary)"/>
+            </svg>
+            <span>Vesper</span>
+          </a>
+          <p class="footer-desc">
+            A calm, independent photography and social platform engineered around chronological feeds, open-source recommendation heuristics, and community governance.
+          </p>
+          <div class="system-status-pill">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span>Open Source Protocol • Federated Relays</span>
+          </div>
+        </div>
+
+        <!-- Links Column 1: Platform -->
+        <div class="footer-nav-col">
+          <h4>Architecture</h4>
+          <ul class="footer-links-list">
+            <li><a href="feed.html" class="footer-link">Chronological Feed</a></li>
+            <li><a href="explore.html" class="footer-link">Discovery Heuristics</a></li>
+            <li><a href="circles.html" class="footer-link">Sovereign Circles</a></li>
+            <li><a href="about.html" class="footer-link">Lossless Media Engine</a></li>
+            <li><a href="create.html" class="footer-link">Creator Studio</a></li>
+          </ul>
+        </div>
+
+        <!-- Links Column 2: Governance & Trust -->
+        <div class="footer-nav-col">
+          <h4>Governance & Trust</h4>
+          <ul class="footer-links-list">
+            <li><a href="about.html" class="footer-link">Community Governance</a></li>
+            <li><a href="about.html" class="footer-link">Public Protocol Specs</a></li>
+            <li><a href="privacy.html" class="footer-link">Privacy Policy</a></li>
+            <li><a href="terms.html" class="footer-link">Terms and Conditions</a></li>
+            <li><a href="about.html" class="footer-link">Security Standards</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter Column -->
+        <div class="footer-newsletter-col">
+          <h4>Vesper Journal</h4>
+          <p class="newsletter-desc">
+            Bi-weekly engineering notes on decentralized systems, democratic moderation, and the quiet web.
+          </p>
+          <form class="newsletter-form" novalidate>
+            <label for="newsletterInput" class="sr-only">Email for newsletter</label>
+            <input type="email" id="newsletterInput" class="form-input" placeholder="you@domain.com" required autocomplete="email">
+            <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div>
+          © 2026 Vesper Protocol Foundation. Released under MIT & CC-BY 4.0 licenses.
+        </div>
+        <div class="social-links-row">
+          <a href="#" class="social-icon-link" aria-label="Vesper on GitHub">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          </a>
+          <a href="#" class="social-icon-link" aria-label="Vesper on Mastodon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm4 0h-2V7h2v10z"/></svg>
+          </a>
+          <a href="#" class="social-icon-link" aria-label="Vesper RSS Feed">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       9. ACCESSIBLE INTERACTIVE DEMO MODAL
+       ======================================================================== -->
+  <div id="demoModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <h3 id="modalTitle">Vesper Interactive Protocol Simulation</h3>
+          <p>Experience client-side feed arbitration and jury governance</p>
+        </div>
+        <button id="modalCloseBtn" class="modal-close-btn" aria-label="Close modal dialog" type="button">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-tabs" role="tablist">
+          <button class="modal-tab-btn active" data-tab="tab-feed" role="tab" aria-selected="true">1. Chrono Feed</button>
+          <button class="modal-tab-btn" data-tab="tab-circles" role="tab" aria-selected="false">2. Sovereign Circles</button>
+          <button class="modal-tab-btn" data-tab="tab-jury" role="tab" aria-selected="false">3. Moderation Ledger</button>
+        </div>
+
+        <!-- Modal Tab 1: Chrono Feed -->
+        <div id="tab-feed" class="modal-tab-content active" role="tabpanel">
+          <div style="background:var(--bg-secondary); padding:var(--space-4); border-radius:var(--radius-md); border:1px solid var(--color-border); margin-bottom:var(--space-4);">
+            <div style="font-weight:700; font-size:0.95rem; margin-bottom:var(--space-1);">Live Federated Relay #4</div>
+            <p style="font-size:0.85rem; color:var(--text-secondary);">Direct stream from your authenticated public keys. 0 algorithmic reranking.</p>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:var(--space-3);">
+            <div style="padding:var(--space-3); background:var(--bg-primary); border-radius:var(--radius-sm); border:1px solid var(--color-border-subtle); font-size:0.88rem;">
+              <strong>@dr_elena:</strong> "Finished reviewing the decentralized identity specs. Noticeable reduction in latency across all regional relays."
+            </div>
+            <div style="padding:var(--space-3); background:var(--bg-primary); border-radius:var(--radius-sm); border:1px solid var(--color-border-subtle); font-size:0.88rem;">
+              <strong>@press_guild:</strong> "The 2026 Investigative Report on Algorithmic Transparency is now published in lossless Markdown."
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Tab 2: Sovereign Circles -->
+        <div id="tab-circles" class="modal-tab-content" role="tabpanel">
+          <div style="background:var(--bg-secondary); padding:var(--space-4); border-radius:var(--radius-md); border:1px solid var(--color-border); margin-bottom:var(--space-4);">
+            <div style="font-weight:700; font-size:0.95rem; margin-bottom:var(--space-1);">Private Circle: Architecture & Spatial Tech</div>
+            <p style="font-size:0.85rem; color:var(--text-secondary);">Access restricted to verified cryptographic signers. End-to-end encrypted.</p>
+          </div>
+          <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.6;">
+            Circle members collaborate in focused channels without algorithms competing for their attention. Files, diagrams, and audio memos stay uncompressed and private.
+          </p>
+        </div>
+
+        <!-- Modal Tab 3: Moderation Ledger -->
+        <div id="tab-jury" class="modal-tab-content" role="tabpanel">
+          <div style="background:var(--bg-secondary); padding:var(--space-4); border-radius:var(--radius-md); border:1px solid var(--color-border); margin-bottom:var(--space-4);">
+            <div style="font-weight:700; font-size:0.95rem; margin-bottom:var(--space-1);">Public Transparent Audit Ledger</div>
+            <p style="font-size:0.85rem; color:var(--text-secondary);">All 1,840 moderation decisions logged with full community juror votes.</p>
+          </div>
+          <div style="font-family:var(--font-mono); font-size:0.8rem; background:var(--bg-primary); padding:var(--space-3); border-radius:var(--radius-sm); border:1px solid var(--color-border); line-height:1.7;">
+            <div>[CASE-812] BOT_INTRUSION: 92% AFFIRMATIVE JURY VOTE</div>
+            <div>[CASE-811] COPYRIGHT_FAIR_USE: 84% DISMISSED (UPHELD)</div>
+            <div>[CASE-810] DOXXING_REPORT: 99% CONFIRMED (NODE BANNED)</div>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; gap:var(--space-3); margin-top:var(--space-4); border-top:1px solid var(--color-border-subtle); padding-top:var(--space-4);">
+          <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('modalCloseBtn').click()">Close Simulation</button>
+          <a href="#hero-signup" class="btn btn-accent btn-sm" onclick="document.getElementById('modalCloseBtn').click()">Claim Your Handle</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen reader announcer for live updates -->
+  <div id="sr-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- App Script -->
+  <script src="js/app.js"></script>
+</body>
+</html>

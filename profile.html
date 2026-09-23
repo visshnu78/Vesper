@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vesper: Creator Profile</title>
+  <meta name="description" content="Creator profile, photo galleries, and publication archives.">
+  <link rel="canonical" href="https://vespersocial.org/profile.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/app-pages.css">
+</head>
+<body class="app-shell">
+
+  <!-- Top Glass Navigation Bar -->
+  <header class="app-nav-bar">
+    <div class="app-nav-inner">
+      <a href="feed.html" class="app-brand" aria-label="Back to Feed">
+        <svg class="brand-icon" viewBox="0 0 32 32" fill="none" style="width:26px; height:26px;" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M10 21L16 9L22 21" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="16" cy="17" r="2.5" fill="var(--accent-primary)"/>
+        </svg>
+        <span>Vesper</span>
+        <span class="app-brand-badge">Profile</span>
+      </a>
+
+      <div class="app-nav-actions">
+        <a href="feed.html" class="nav-icon-btn" title="Feed">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        </a>
+        <a href="explore.html" class="nav-icon-btn" title="Explore">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+        </a>
+        <a href="messages.html" class="nav-icon-btn" title="Direct Messages">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </a>
+        <a href="notifications.html" class="nav-icon-btn" title="Notifications">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+        </a>
+        <a href="create.html" class="nav-icon-btn" title="Create Post" style="background:var(--accent-subtle); color:var(--accent-primary); border-color:var(--accent-border);">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </a>
+        <button id="themeToggleBtn" class="nav-icon-btn" title="Toggle Theme" type="button">
+          <svg id="themeMoonIcon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Profile Content Container -->
+  <main class="profile-container">
+    <!-- Header Card -->
+    <div class="profile-header-card">
+      <div class="profile-avatar-large">
+        <img id="profAvatar" src="" alt="Profile Avatar">
+      </div>
+
+      <div class="profile-main-meta">
+        <!-- Top Row: Handle & Actions -->
+        <div class="profile-top-row">
+          <h1 id="profHandle" class="profile-handle">@username</h1>
+          <div id="profActionContainer" style="display:flex; gap:8px;">
+            <!-- Buttons injected by js/profile.js (Edit Profile or Follow) -->
+          </div>
+        </div>
+
+        <!-- Stats Counters -->
+        <div class="profile-stats-row">
+          <div><span id="profPostCount" class="stat-number">0</span><span class="stat-label">posts</span></div>
+          <div><span id="profFollowerCount" class="stat-number">0</span><span class="stat-label">followers</span></div>
+          <div><span id="profFollowingCount" class="stat-number">0</span><span class="stat-label">following</span></div>
+        </div>
+
+        <!-- Bio & Details -->
+        <div class="profile-bio-box">
+          <div id="profFullName" style="font-weight:700; margin-bottom:2px;">Full Name</div>
+          <div id="profBio" style="color:var(--text-secondary); margin-bottom:4px;">Bio description here</div>
+          <a id="profWebsite" href="#" target="_blank" rel="noopener noreferrer" class="profile-website">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            <span id="profWebsiteText">website.com</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Instagram-Style Media Tabs -->
+    <div class="profile-tabs-bar" role="tablist">
+      <button class="profile-tab-btn active" id="tabPostsBtn" type="button">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <span>Posts</span>
+      </button>
+      <button class="profile-tab-btn" id="tabSavedBtn" type="button">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        <span>Saved</span>
+      </button>
+      <button class="profile-tab-btn" id="tabLikedBtn" type="button">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        <span>Liked</span>
+      </button>
+    </div>
+
+    <!-- 3-Column Instagram Photo Grid -->
+    <div class="media-3col-grid" id="profileMediaGrid">
+      <!-- Populated dynamically by js/profile.js -->
+    </div>
+  </main>
+
+  <!-- Edit Profile Modal -->
+  <div id="editProfileModal" class="lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div style="background:var(--bg-primary); border:1px solid var(--color-border); border-radius:var(--radius-lg); padding:var(--space-6); max-width:440px; width:100%; box-shadow:var(--shadow-2xl);">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:var(--space-4);">
+        <h3 style="font-family:var(--font-display); font-size:1.2rem;">Edit Profile</h3>
+        <button id="closeEditModalBtn" type="button" aria-label="Close edit profile modal" style="background:none; border:none; color:var(--text-muted); cursor:pointer; display:flex; align-items:center; justify-content:center;">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <form id="editProfileForm">
+        <div class="auth-form-group">
+          <label class="auth-label" for="editName">Display Name</label>
+          <input type="text" id="editName" class="form-input" required>
+        </div>
+        <div class="auth-form-group">
+          <label class="auth-label" for="editBio">Bio</label>
+          <textarea id="editBio" class="form-input" style="height:80px; resize:vertical;"></textarea>
+        </div>
+        <div class="auth-form-group">
+          <label class="auth-label" for="editWebsite">Website URL</label>
+          <input type="url" id="editWebsite" class="form-input" placeholder="https://yourdomain.com">
+        </div>
+        <div class="auth-form-group">
+          <label class="auth-label" for="editAvatar">Avatar Image URL</label>
+          <input type="url" id="editAvatar" class="form-input">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:var(--space-2);">Save Changes</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Photo Lightbox Detail Modal -->
+  <div id="photoLightboxModal" class="lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="lightbox-content">
+      <!-- Left: Image Canvas -->
+      <div class="lightbox-img-col">
+        <img id="lightboxImg" src="" alt="Full view">
+      </div>
+      <!-- Right: Author & Comments -->
+      <div class="lightbox-details-col">
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--color-border); padding-bottom:var(--space-3); margin-bottom:var(--space-3);">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <img id="lightboxAuthorAvatar" src="" style="width:36px; height:36px; border-radius:50%; object-fit:cover;" alt="">
+            <strong id="lightboxAuthorUsername">@username</strong>
+          </div>
+          <button id="closeLightboxBtn" type="button" aria-label="Close lightbox" style="background:none; border:none; cursor:pointer; color:var(--text-muted); display:flex; align-items:center; justify-content:center;">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+
+        <div id="lightboxCaption" style="font-size:0.9rem; line-height:1.5; margin-bottom:var(--space-3); padding-bottom:var(--space-3); border-bottom:1px solid var(--color-border-subtle);"></div>
+
+        <!-- Comments Container -->
+        <div id="lightboxCommentsList" style="flex:1; overflow-y:auto; display:flex; flex-direction:column; gap:var(--space-2); margin-bottom:var(--space-3); font-size:0.86rem;"></div>
+
+        <!-- Add Comment Form -->
+        <form id="lightboxCommentForm" style="display:flex; gap:8px; border-top:1px solid var(--color-border); padding-top:var(--space-3);">
+          <input type="text" id="lightboxCommentInput" class="form-input" placeholder="Add a comment..." required style="height:38px; font-size:0.85rem;">
+          <button type="submit" class="btn btn-primary btn-sm">Post</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom Dock -->
+  <nav class="mobile-bottom-dock" aria-label="Mobile Navigation">
+    <a href="feed.html" class="dock-item" aria-label="Feed"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></a>
+    <a href="explore.html" class="dock-item" aria-label="Explore"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></a>
+    <a href="create.html" class="dock-create-btn" aria-label="Create Post"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></a>
+    <a href="notifications.html" class="dock-item" aria-label="Notifications"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg></a>
+    <a href="profile.html" class="dock-item active" aria-label="Profile"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+  </nav>
+
+  <script src="js/db.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

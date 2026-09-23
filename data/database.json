@@ -1,0 +1,526 @@
+{
+  "users": [
+    {
+      "id": "usr_1",
+      "username": "elena_arch",
+      "name": "Elena Rostova",
+      "email": "elena@vespersocial.org",
+      "password_hash": "3a1fafa13be318feab1a435204b46cbf:1f4415ab132cf7b4f2ecdaa9bfcf277f37e90652fdd1eea1b53b44bb92c88125f1974a987695a44229546eb4d55369bbc7f54a1b83109a4b44169a60c5fe19fe",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
+      "bio": "Architectural designer and spatial documentarian. Exploring raw concrete, daylight vectors, and calm spaces.",
+      "website": "https://rostova.design",
+      "followers": [
+        "usr_2",
+        "usr_3",
+        "usr_4"
+      ],
+      "following": [
+        "usr_2",
+        "usr_3"
+      ],
+      "saved_posts": [
+        "post_2",
+        "post_4"
+      ],
+      "created_at": "2026-01-10T10:00:00Z"
+    },
+    {
+      "id": "usr_2",
+      "username": "marcus_lens",
+      "name": "Marcus Vance",
+      "email": "marcus@vespersocial.org",
+      "password_hash": "3a1fafa13be318feab1a435204b46cbf:1f4415ab132cf7b4f2ecdaa9bfcf277f37e90652fdd1eea1b53b44bb92c88125f1974a987695a44229546eb4d55369bbc7f54a1b83109a4b44169a60c5fe19fe",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
+      "bio": "Medium format analog shooter. Documenting nocturnal architecture and rainy street reflections in Tokyo and Berlin.",
+      "website": "https://marcusvance.photo",
+      "followers": [
+        "usr_1",
+        "usr_3"
+      ],
+      "following": [
+        "usr_1",
+        "usr_4"
+      ],
+      "saved_posts": [
+        "post_1"
+      ],
+      "created_at": "2026-01-12T12:00:00Z"
+    },
+    {
+      "id": "usr_3",
+      "username": "maya_film",
+      "name": "Maya Chen",
+      "email": "maya@vespersocial.org",
+      "password_hash": "3a1fafa13be318feab1a435204b46cbf:1f4415ab132cf7b4f2ecdaa9bfcf277f37e90652fdd1eea1b53b44bb92c88125f1974a987695a44229546eb4d55369bbc7f54a1b83109a4b44169a60c5fe19fe",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80",
+      "bio": "Visual artist and film cinematographer. High-contrast shadows, 35mm warmth, and quiet everyday scenes.",
+      "website": "https://chenfilm.studio",
+      "followers": [
+        "usr_1",
+        "usr_2"
+      ],
+      "following": [
+        "usr_1",
+        "usr_2",
+        "usr_4"
+      ],
+      "saved_posts": [
+        "post_3"
+      ],
+      "created_at": "2026-01-14T15:30:00Z"
+    },
+    {
+      "id": "usr_4",
+      "username": "dr_julian",
+      "name": "Dr. Julian Thorne",
+      "email": "julian@vespersocial.org",
+      "password_hash": "3a1fafa13be318feab1a435204b46cbf:1f4415ab132cf7b4f2ecdaa9bfcf277f37e90652fdd1eea1b53b44bb92c88125f1974a987695a44229546eb4d55369bbc7f54a1b83109a4b44169a60c5fe19fe",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80",
+      "bio": "Computational designer and open-source cryptographic researcher. Building federated social protocols.",
+      "website": "https://julianthorne.net",
+      "followers": [
+        "usr_1",
+        "usr_2",
+        "usr_3"
+      ],
+      "following": [
+        "usr_1"
+      ],
+      "saved_posts": [],
+      "created_at": "2026-01-16T08:00:00Z"
+    },
+    {
+      "id": "usr_1790191797602_d6f8d9",
+      "username": "real_photographer",
+      "name": "Arthur Miller",
+      "email": "arthur@example.com",
+      "password_hash": "17e0c034fcbf5a0a3a3c9836db8793d6:aca4c2b3c3ea5c7e9c9506496696c8ab60a1d8b658edb1ed7009434c10236b1e06dd62d23e8a7ca6960845f39aa43cd3a68b43b152f452f86f6a33eee203ec9b",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
+      "bio": "Vesper member.",
+      "website": "",
+      "followers": [],
+      "following": [
+        "usr_1"
+      ],
+      "saved_posts": [],
+      "created_at": "2026-09-23T19:29:57.602Z"
+    },
+    {
+      "id": "usr_1790192718370_9703bd",
+      "username": "real_user_1790192718290",
+      "name": "Real User Suite",
+      "email": "real_user_1790192718290@vespersocial.org",
+      "password_hash": "6b7d8310bd60f1d72362e1a078c13cfe:b1763af090fdf420f9f55d1f8641face06f008afafa75e6f268eb28b2983beabb454bcdc930a57a431c93e85bea6f121d9b9e7c3f418223848a0d2f282f4b07d",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
+      "bio": "Vesper member.",
+      "website": "",
+      "followers": [],
+      "following": [
+        "usr_1"
+      ],
+      "saved_posts": [],
+      "created_at": "2026-09-23T19:45:18.370Z"
+    },
+    {
+      "id": "usr_1790192754266_b77015",
+      "username": "real_user_1790192754180",
+      "name": "Real User Suite",
+      "email": "real_user_1790192754180@vespersocial.org",
+      "password_hash": "e0a8d3623d467f1439241c8b9f9cf2ca:67922046374de7ea93662e46b37d67a0b7bad2c6ed2926da87f7e764a392f6e3a0bc150f5ba81199c5a5de833d7506fffcc8240ff4111a18a09baf3f03693436",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
+      "bio": "Vesper member.",
+      "website": "",
+      "followers": [],
+      "following": [
+        "usr_1"
+      ],
+      "saved_posts": [],
+      "created_at": "2026-09-23T19:45:54.267Z"
+    },
+    {
+      "id": "usr_1790192988065_0b08a8",
+      "username": "visshnu",
+      "name": "visshnu",
+      "email": "visshnu078@gmail.com",
+      "password_hash": "93955534610679b72dbceb885e680704:f0246e74610a6a13910db58c13d50df5bb7cee5c0ba305d19b8874abaac32df679b139228ea7152c4d60f5e0515c86fa8866f3bcdda12adaa3cacd51c3fa9eb7",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
+      "bio": "Vesper member.",
+      "website": "",
+      "followers": [],
+      "following": [
+        "usr_1"
+      ],
+      "saved_posts": [],
+      "created_at": "2026-09-23T19:49:48.065Z"
+    }
+  ],
+  "sessions": {
+    "38d07e0e2eb46dbbc8e70c85e3396769b2a4e1fd779aa9e5b0435aabf1921e5b": {
+      "userId": "usr_1790191797602_d6f8d9",
+      "username": "real_photographer",
+      "createdAt": "2026-09-23T19:29:57.604Z",
+      "expiresAt": "2026-10-23T19:29:57.604Z"
+    },
+    "5f075716827b1dba3ef7bfad01975d7139e5ef6e92072e34fb2c74bd35b10552": {
+      "userId": "usr_1790191797602_d6f8d9",
+      "username": "real_photographer",
+      "createdAt": "2026-09-23T19:29:57.694Z",
+      "expiresAt": "2026-10-23T19:29:57.694Z"
+    },
+    "832c22517c84afd90d3f4663b7eab5d3ad02c869a6b920ba93e2a497956b8eb3": {
+      "userId": "usr_1",
+      "username": "elena_arch",
+      "createdAt": "2026-09-23T19:29:57.773Z",
+      "expiresAt": "2026-10-23T19:29:57.773Z"
+    },
+    "e6434a4304030f55e0b0479831eb2ff2a62878e6bbc293c7a30249d8a0767498": {
+      "userId": "usr_1790192718370_9703bd",
+      "username": "real_user_1790192718290",
+      "createdAt": "2026-09-23T19:45:18.370Z",
+      "expiresAt": "2026-10-23T19:45:18.370Z"
+    },
+    "05850fe88544496c812e19f6dfeb15a054f0fdd1328c2c06e9c88d6879e61504": {
+      "userId": "usr_1790192718370_9703bd",
+      "username": "real_user_1790192718290",
+      "createdAt": "2026-09-23T19:45:18.534Z",
+      "expiresAt": "2026-10-23T19:45:18.534Z"
+    },
+    "457dceb411e8cdf1fbae16ec3c94f6b1d35e1cbb2c8134597a3acb073864a950": {
+      "userId": "usr_1790192754266_b77015",
+      "username": "real_user_1790192754180",
+      "createdAt": "2026-09-23T19:45:54.448Z",
+      "expiresAt": "2026-10-23T19:45:54.448Z"
+    },
+    "f90d373951eb85466b0459642200917cd63c6f697336b639749c84d34292ba70": {
+      "userId": "usr_1790192988065_0b08a8",
+      "username": "visshnu",
+      "createdAt": "2026-09-23T19:49:48.065Z",
+      "expiresAt": "2026-10-23T19:49:48.065Z"
+    }
+  },
+  "posts": [
+    {
+      "id": "post_1790192754458_3765c9",
+      "user_id": "usr_1790192754266_b77015",
+      "author_username": "real_user_1790192754180",
+      "author_name": "Real User Suite",
+      "author_avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
+      "image_url": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=85",
+      "media_url": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=85",
+      "filter": "normal",
+      "caption": "Testing verified lossless post stream #architecture",
+      "location": "",
+      "circle": "Architecture & Spatial",
+      "camera_meta": "Leica M11 · 35mm Summicron",
+      "film_stock": "Kodak Tri-X 400",
+      "likes": [
+        "usr_1790192754266_b77015"
+      ],
+      "likes_count": 1,
+      "comments": [],
+      "created_at": "2026-09-23T19:45:54.458Z"
+    },
+    {
+      "id": "post_1",
+      "user_id": "usr_1",
+      "author_username": "elena_arch",
+      "author_name": "Elena Rostova",
+      "author_avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
+      "image_url": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85",
+      "caption": "Raw monolithic concrete framing morning autumn light. Uncompressed photography preserves delicate grain and textural depth. #architecture #minimalism #concrete #calm",
+      "filter": "filter-warm",
+      "location": "Kyoto Modern Art Pavilion",
+      "circle": "Architecture & Spatial",
+      "likes": [
+        "usr_2",
+        "usr_3",
+        "usr_4"
+      ],
+      "comments": [
+        {
+          "id": "c_1",
+          "user_id": "usr_2",
+          "username": "marcus_lens",
+          "author_avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
+          "text": "The shadows cast on that inner bevel are breathtaking. Perfect morning exposure.",
+          "created_at": "2026-09-23T14:30:00Z"
+        },
+        {
+          "id": "c_2",
+          "user_id": "usr_3",
+          "username": "maya_film",
+          "author_avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80",
+          "text": "Incredible dynamic range. Which focal length did you shoot this on?",
+          "created_at": "2026-09-23T16:15:00Z"
+        }
+      ],
+      "created_at": "2026-09-23T12:00:00Z"
+    },
+    {
+      "id": "post_2",
+      "user_id": "usr_2",
+      "author_username": "marcus_lens",
+      "author_name": "Marcus Vance",
+      "author_avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
+      "image_url": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=85",
+      "caption": "Nocturnal rain reflections in Shinjuku alleys. Captured on Cinestill 800T pushed two stops. #streetphotography #analog #nightscapes #tokyo",
+      "filter": "filter-vintage",
+      "location": "Shinjuku, Tokyo",
+      "circle": "Street Photography",
+      "likes": [
+        "usr_1",
+        "usr_3"
+      ],
+      "comments": [
+        {
+          "id": "c_3",
+          "user_id": "usr_1",
+          "username": "elena_arch",
+          "author_avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
+          "text": "That turquoise against the saturated scarlet signage is pure magic.",
+          "created_at": "2026-09-23T18:00:00Z"
+        }
+      ],
+      "created_at": "2026-09-23T10:15:00Z"
+    },
+    {
+      "id": "post_3",
+      "user_id": "usr_3",
+      "author_username": "maya_film",
+      "author_name": "Maya Chen",
+      "author_avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80",
+      "image_url": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=85",
+      "caption": "Golden hour geometries across the salt flats. The quietest horizons hold the most resonance. #minimalism #cinematography #nature #film",
+      "filter": "filter-clarity",
+      "location": "Atacama Basin, Chile",
+      "circle": "Cinematography & Film",
+      "likes": [
+        "usr_1",
+        "usr_2",
+        "usr_4"
+      ],
+      "comments": [
+        {
+          "id": "c_4",
+          "user_id": "usr_4",
+          "username": "dr_julian",
+          "author_avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80",
+          "text": "Stunning composition Maya. It breathes calmness.",
+          "created_at": "2026-09-23T19:20:00Z"
+        }
+      ],
+      "created_at": "2026-09-22T20:45:00Z"
+    },
+    {
+      "id": "post_4",
+      "user_id": "usr_4",
+      "author_username": "dr_julian",
+      "author_name": "Dr. Julian Thorne",
+      "author_avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80",
+      "image_url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=85",
+      "caption": "Yosemite dawn mist cascading over granite spires. Protecting space for deliberate thought and direct human connection. #nature #wilderness #calm",
+      "filter": "filter-cool",
+      "location": "Yosemite Valley, California",
+      "circle": "Outdoor & Conservation",
+      "likes": [
+        "usr_1",
+        "usr_2"
+      ],
+      "comments": [],
+      "created_at": "2026-09-22T17:10:00Z"
+    },
+    {
+      "id": "post_5",
+      "user_id": "usr_1",
+      "author_username": "elena_arch",
+      "author_name": "Elena Rostova",
+      "author_avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
+      "image_url": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=85",
+      "caption": "Spiral staircase cantilevered from exposed aggregate. Geometry as poetry. #interiorarchitecture #design #spirals",
+      "filter": "filter-noir",
+      "location": "Copenhagen Design Museum",
+      "circle": "Architecture & Spatial",
+      "likes": [
+        "usr_3"
+      ],
+      "comments": [],
+      "created_at": "2026-09-21T11:00:00Z"
+    },
+    {
+      "id": "post_6",
+      "user_id": "usr_2",
+      "author_username": "marcus_lens",
+      "author_name": "Marcus Vance",
+      "author_avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
+      "image_url": "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=85",
+      "caption": "Silhouette against morning ocean fog. Kodachrome color profile emulation test. #ocean #analogue #fog",
+      "filter": "filter-warm",
+      "location": "Big Sur, California",
+      "circle": "Street Photography",
+      "likes": [
+        "usr_1",
+        "usr_4"
+      ],
+      "comments": [],
+      "created_at": "2026-09-20T16:40:00Z"
+    }
+  ],
+  "stories": [
+    {
+      "id": "story_1",
+      "user_id": "usr_1",
+      "username": "elena_arch",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
+      "image_url": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
+      "caption": "Kyoto studio morning sketch session",
+      "created_at": "2026-09-23T22:00:00Z"
+    },
+    {
+      "id": "story_2",
+      "user_id": "usr_2",
+      "username": "marcus_lens",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
+      "image_url": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80",
+      "caption": "Night shooting in the drizzle",
+      "created_at": "2026-09-23T21:30:00Z"
+    },
+    {
+      "id": "story_3",
+      "user_id": "usr_3",
+      "username": "maya_film",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80",
+      "image_url": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80",
+      "caption": "Grading 35mm scans today",
+      "created_at": "2026-09-23T20:00:00Z"
+    },
+    {
+      "id": "story_4",
+      "user_id": "usr_4",
+      "username": "dr_julian",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80",
+      "image_url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+      "caption": "Trail research note number 12",
+      "created_at": "2026-09-23T19:00:00Z"
+    }
+  ],
+  "conversations": [
+    {
+      "id": "conv_1",
+      "participants": [
+        "usr_1",
+        "usr_2"
+      ],
+      "recipient": {
+        "id": "usr_2",
+        "username": "marcus_lens",
+        "name": "Marcus Vance",
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80"
+      },
+      "messages": [
+        {
+          "id": "m1",
+          "sender_id": "usr_2",
+          "text": "Hello Elena. Did you check out the new darkroom prints from Kyoto?",
+          "created_at": "2026-09-23T14:00:00Z"
+        },
+        {
+          "id": "m2",
+          "sender_id": "usr_1",
+          "text": "Yes. The tonal balance on the 800T film is remarkable. What developer did you use?",
+          "created_at": "2026-09-23T14:15:00Z"
+        },
+        {
+          "id": "m3",
+          "sender_id": "usr_2",
+          "text": "Standard C-41, but pushed two full stops during the night shoot.",
+          "created_at": "2026-09-23T14:20:00Z"
+        },
+        {
+          "id": "m_1790192754469",
+          "sender_id": "usr_1",
+          "text": "Direct verified peer message.",
+          "created_at": "2026-09-23T19:45:54.469Z"
+        }
+      ],
+      "last_message": "Direct verified peer message.",
+      "updated_at": "2026-09-23T19:45:54.469Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "notif_1",
+      "user_id": "usr_1",
+      "sender_username": "marcus_lens",
+      "sender_avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
+      "type": "like",
+      "text": "liked your raw monolithic concrete photograph.",
+      "target_url": "feed.html#postCard_post_1",
+      "read": false,
+      "created_at": "2026-09-23T14:30:00Z"
+    },
+    {
+      "id": "notif_2",
+      "user_id": "usr_1",
+      "sender_username": "maya_film",
+      "sender_avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80",
+      "type": "comment",
+      "text": "commented: 'Incredible dynamic range. Which focal length did you shoot this on?'",
+      "target_url": "feed.html#postCard_post_1",
+      "read": false,
+      "created_at": "2026-09-23T16:15:00Z"
+    },
+    {
+      "id": "notif_3",
+      "user_id": "usr_1",
+      "sender_username": "dr_julian",
+      "sender_avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80",
+      "type": "follow",
+      "text": "started following your photography feed.",
+      "target_url": "profile.html?user=dr_julian",
+      "read": true,
+      "created_at": "2026-09-22T19:00:00Z"
+    }
+  ],
+  "circles": [
+    {
+      "id": "circle_1",
+      "name": "Architecture & Spatial",
+      "category": "architecture",
+      "description": "Architects, spatial theorists, and brutalist documentarians. Focus on daylight, mass, and structural honesty.",
+      "cover": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+      "members_count": 284,
+      "posts_count": 142,
+      "joined": true
+    },
+    {
+      "id": "circle_2",
+      "name": "Street Photography",
+      "category": "street",
+      "description": "Medium format and 35mm street documentation across global metropolises. Unposed, observational, candid.",
+      "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80",
+      "members_count": 319,
+      "posts_count": 210,
+      "joined": false
+    },
+    {
+      "id": "circle_3",
+      "name": "Cinematography & Film",
+      "category": "film",
+      "description": "Directors of photography, analog colorists, and lighting designers analyzing visual narrative pacing.",
+      "cover": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80",
+      "members_count": 195,
+      "posts_count": 88,
+      "joined": false
+    },
+    {
+      "id": "circle_4",
+      "name": "Outdoor & Conservation",
+      "category": "nature",
+      "description": "Expedition photography, wilderness preservation essays, and ecological field notes.",
+      "cover": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+      "members_count": 412,
+      "posts_count": 305,
+      "joined": true
+    }
+  ]
+}

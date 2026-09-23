@@ -1,0 +1,19 @@
+{
+  "name": "vesper-social-platform",
+  "version": "2.4.0",
+  "description": "Full-fledged calm social platform with photo posting, database persistence, and Instagram-inspired glassmorphic UI.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "social",
+    "instagram",
+    "glassmorphism",
+    "photo-sharing",
+    "database"
+  ],
+  "author": "Vesper Protocol Foundation",
+  "license": "MIT"
+}
