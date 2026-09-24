@@ -166,31 +166,38 @@ function initLoginForm() {
     }
 
     try {
-      // First try backend REST API
       let authenticatedUser = null;
       let token = null;
 
+      // 1. Attempt backend REST API if available and serving JSON
       try {
         const resp = await fetch('/api/auth/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ identifier, password })
         });
-        const resData = await resp.json();
-        if (resp.ok && resData.success) {
-          authenticatedUser = resData.user;
-          token = resData.token;
-          if (token) localStorage.setItem('vesper_token', token);
-        } else if (!resp.ok) {
-          throw new Error(resData.error || 'Authentication failed');
+        const contentType = resp.headers.get('content-type') || '';
+        if (contentType.includes('application/json')) {
+          const resData = await resp.json();
+          if (resp.ok && resData.success) {
+            authenticatedUser = resData.user;
+            token = resData.token;
+            if (token) localStorage.setItem('vesper_token', token);
+          } else if (resp.status === 401 || resp.status === 400) {
+            throw new Error(resData.error || 'Invalid credentials');
+          }
         }
-      } catch (netErr) {
-        // If server is not responding, fallback to local database engine
-        if (netErr.message && !netErr.message.includes('Failed to fetch')) {
-          throw netErr;
+      } catch (apiErr) {
+        if (apiErr.message && (
+          apiErr.message.includes('Invalid credentials') ||
+          apiErr.message.includes('Please verify') ||
+          apiErr.message.includes('Incorrect credentials')
+        )) {
+          throw apiErr;
         }
       }
 
+      // 2. Client-side database login fallback (works everywhere, including static Vercel)
       if (!authenticatedUser) {
         authenticatedUser = await window.VesperDB.login(identifier, password);
       } else {
@@ -200,7 +207,7 @@ function initLoginForm() {
       showAlert(`Welcome back, @${authenticatedUser.username}. Opening feed...`, 'success');
       setTimeout(() => {
         window.location.href = 'feed.html';
-      }, 500);
+      }, 400);
     } catch (err) {
       showAlert(err.message || 'Authentication failed. Please verify credentials.');
     }
@@ -229,8 +236,20 @@ function initRegisterForm() {
     const email = document.getElementById('regEmail').value.trim();
     const password = document.getElementById('regPassword').value;
 
+    if (!name) {
+      showAlert('Please enter your display name.');
+      return;
+    }
     if (!username || username.length < 3) {
       showAlert('Username must be at least 3 characters.');
+      return;
+    }
+    if (!/^[a-zA-Z0-9_]{3,30}$/.test(username)) {
+      showAlert('Username must use 3-30 letters, numbers, or underscores.');
+      return;
+    }
+    if (!email || !email.includes('@') || !email.includes('.')) {
+      showAlert('Please enter a valid email address.');
       return;
     }
     if (!password || password.length < 8) {
@@ -242,6 +261,7 @@ function initRegisterForm() {
       let registeredUser = null;
       let token = null;
 
+      // 1. Attempt backend REST API if available and serving JSON
       try {
         const resp = await fetch('/api/auth/register', {
           method: 'POST',
@@ -254,20 +274,30 @@ function initRegisterForm() {
             avatar: selectedAvatar
           })
         });
-        const resData = await resp.json();
-        if (resp.ok && resData.success) {
-          registeredUser = resData.user;
-          token = resData.token;
-          if (token) localStorage.setItem('vesper_token', token);
-        } else if (!resp.ok) {
-          throw new Error(resData.error || 'Registration failed');
+
+        const contentType = resp.headers.get('content-type') || '';
+        if (contentType.includes('application/json')) {
+          const resData = await resp.json();
+          if (resp.ok && resData.success) {
+            registeredUser = resData.user;
+            token = resData.token;
+            if (token) localStorage.setItem('vesper_token', token);
+          } else if (resp.status === 400 || resp.status === 409) {
+            throw new Error(resData.error || 'Registration failed');
+          }
         }
-      } catch (netErr) {
-        if (netErr.message && !netErr.message.includes('Failed to fetch')) {
-          throw netErr;
+      } catch (apiErr) {
+        if (apiErr.message && (
+          apiErr.message.includes('already taken') ||
+          apiErr.message.includes('already exists') ||
+          apiErr.message.includes('Username') ||
+          apiErr.message.includes('Password')
+        )) {
+          throw apiErr;
         }
       }
 
+      // 2. Client-side database registration (works 100% on Vercel static, localhost, and offline)
       if (!registeredUser) {
         registeredUser = await window.VesperDB.register({
           name,
@@ -277,8 +307,10 @@ function initRegisterForm() {
           avatar: selectedAvatar
         });
       } else {
-        // Also persist to local db copy
-        window.VesperDB.data.users.push(registeredUser);
+        if (!window.VesperDB.getUserById(registeredUser.id)) {
+          if (!Array.isArray(window.VesperDB.data.users)) window.VesperDB.data.users = [];
+          window.VesperDB.data.users.push(registeredUser);
+        }
         window.VesperDB.save();
         window.VesperDB.setCurrentUserId(registeredUser.id);
       }
@@ -286,9 +318,9 @@ function initRegisterForm() {
       showAlert(`Account @${registeredUser.username} created. Redirecting to feed...`, 'success');
       setTimeout(() => {
         window.location.href = 'feed.html';
-      }, 600);
+      }, 500);
     } catch (err) {
-      showAlert(err.message || 'Registration failed.');
+      showAlert(err.message || 'Registration failed. Please check your inputs.');
     }
   });
 }

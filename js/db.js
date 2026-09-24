@@ -347,14 +347,24 @@
 
   async function hashPasswordClient(password, salt) {
     const s = salt || Math.random().toString(36).substring(2, 10) + Math.random().toString(36).substring(2, 10);
-    if (typeof crypto !== 'undefined' && crypto.subtle && crypto.subtle.digest) {
-      const enc = new TextEncoder();
-      const data = enc.encode(s + ':' + password);
-      const buf = await crypto.subtle.digest('SHA-256', data);
-      const hash = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
-      return `${s}:${hash}`;
+    try {
+      if (typeof crypto !== 'undefined' && crypto.subtle && typeof crypto.subtle.digest === 'function') {
+        const enc = new TextEncoder();
+        const data = enc.encode(s + ':' + password);
+        const buf = await crypto.subtle.digest('SHA-256', data);
+        const hash = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+        return `${s}:${hash}`;
+      }
+    } catch (e) {
+      console.warn('crypto.subtle unavailable, using fallback', e);
     }
-    return `${s}:fallback_${password.length}`;
+    let simpleHash = 0;
+    const str = s + ':' + password;
+    for (let i = 0; i < str.length; i++) {
+      simpleHash = ((simpleHash << 5) - simpleHash) + str.charCodeAt(i);
+      simpleHash |= 0;
+    }
+    return `${s}:hash_${Math.abs(simpleHash).toString(16)}`;
   }
 
   class VesperDatabase {
@@ -365,11 +375,15 @@
 
     init() {
       try {
-        const stored = localStorage.getItem(STORAGE_KEY);
-        if (stored) {
-          this.data = JSON.parse(stored);
+        if (typeof localStorage !== 'undefined') {
+          const stored = localStorage.getItem(STORAGE_KEY);
+          if (stored) {
+            this.data = JSON.parse(stored);
+          } else {
+            this.resetToDefaults();
+          }
         } else {
-          this.resetToDefaults();
+          this.data = JSON.parse(JSON.stringify(SEED_DATA));
         }
       } catch (err) {
         console.warn('VesperDB localStorage unavailable, using memory state', err);
@@ -383,7 +397,9 @@
 
     save() {
       try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(this.data));
+        if (typeof localStorage !== 'undefined') {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(this.data));
+        }
       } catch (err) {
         console.error('VesperDB save error:', err);
       }
@@ -400,18 +416,24 @@
     // -------------------------------------------------------------------------
     getCurrentUserId() {
       try {
-        return localStorage.getItem(SESSION_KEY) || null;
+        if (typeof localStorage !== 'undefined') {
+          return localStorage.getItem(SESSION_KEY) || null;
+        }
+        return this._activeUserId || null;
       } catch (e) {
         return null;
       }
     }
 
     setCurrentUserId(userId) {
+      this._activeUserId = userId || null;
       try {
-        if (userId) {
-          localStorage.setItem(SESSION_KEY, userId);
-        } else {
-          localStorage.removeItem(SESSION_KEY);
+        if (typeof localStorage !== 'undefined') {
+          if (userId) {
+            localStorage.setItem(SESSION_KEY, userId);
+          } else {
+            localStorage.removeItem(SESSION_KEY);
+          }
         }
       } catch (e) {}
     }
@@ -425,7 +447,9 @@
     logout() {
       this.setCurrentUserId(null);
       try {
-        localStorage.removeItem('vesper_token');
+        if (typeof localStorage !== 'undefined') {
+          localStorage.removeItem('vesper_token');
+        }
       } catch (e) {}
     }
 
@@ -483,7 +507,7 @@
       const selectedAvatar = avatar || defaultAvatars[Math.floor(Math.random() * defaultAvatars.length)];
 
       const newUser = {
-        id: 'usr_' + Date.now() + '_' + Math.random().toString(36).substr(2, 4),
+        id: 'usr_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6),
         username: cleanUsername,
         name: name || cleanUsername,
         email: cleanEmail,
@@ -497,11 +521,17 @@
         created_at: new Date().toISOString()
       };
 
+      if (!Array.isArray(this.data.users)) {
+        this.data.users = [];
+      }
       this.data.users.push(newUser);
 
       const founder = this.getUserById('usr_1');
-      if (founder && !founder.followers.includes(newUser.id)) {
-        founder.followers.push(newUser.id);
+      if (founder) {
+        if (!Array.isArray(founder.followers)) founder.followers = [];
+        if (!founder.followers.includes(newUser.id)) {
+          founder.followers.push(newUser.id);
+        }
       }
 
       this.save();
